@@ -228,13 +228,3 @@ def activity_by_weekday(db: Session = Depends(get_db)):
 @router.get("/analytics/owners-priority")
 def owners_priority(db: Session = Depends(get_db)):
     return crud.get_owners_priority(db)
-
-# crud.py
-
-def get_activity_by_weekday(db):
-    # TODO: заменить на реальную логику
-    return {"message": "Функция get_activity_by_weekday пока не реализована"}
-
-def get_owners_priority(db):
-    # TODO: заменить на реальную логику
-    return {"message": "Функция get_owners_priority пока не реализована"}
