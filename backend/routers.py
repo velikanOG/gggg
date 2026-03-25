@@ -210,3 +210,31 @@ def get_owners_with_specific_lastname(db: Session = Depends(get_db)):
     if result is None:
         raise HTTPException(status_code=404, detail="Таких фамилий нет")
     return create_response_with_sql(result)
+
+
+# 1. Владельцы без отчества
+@router.get("/owners/no-middle-name")
+def owners_without_middle_name(db: Session = Depends(get_db)):
+    return crud.get_owners_without_middle_name(db)
+
+
+# 2. Активность по дням недели
+@router.get("/analytics/activity-by-weekday")
+def activity_by_weekday(db: Session = Depends(get_db)):
+    return crud.get_activity_by_weekday(db)
+
+
+# 3. Приоритет владельцев
+@router.get("/analytics/owners-priority")
+def owners_priority(db: Session = Depends(get_db)):
+    return crud.get_owners_priority(db)
+
+# crud.py
+
+def get_activity_by_weekday(db):
+    # TODO: заменить на реальную логику
+    return {"message": "Функция get_activity_by_weekday пока не реализована"}
+
+def get_owners_priority(db):
+    # TODO: заменить на реальную логику
+    return {"message": "Функция get_owners_priority пока не реализована"}
